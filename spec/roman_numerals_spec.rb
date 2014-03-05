@@ -18,3 +18,17 @@ describe('roman_numeralize') do
     roman_numeralize(4).should(eq("IV"))
   end
 end
+
+describe('roman_unnumeralize') do
+  it('changes I to 1') do
+    roman_unnumeralize("I").should(eq(1))
+  end
+  it('changes CM to 900') do
+    roman_unnumeralize("CM").should(eq(900))
+  end  
+  it('changes IV to 4') do
+    roman_unnumeralize("IV").should(eq(4))
+  end
+  it('changes dccxxxv to 735') do
+    roman_unnumeralize("dccxxxv").should eq 735
+end

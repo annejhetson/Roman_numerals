@@ -19,8 +19,25 @@ def roman_numeralize(number)
   string_of_IX = string_of_XL.gsub "VIIII", "IX"
   roman_numeral = string_of_IX.gsub "IIII", "IV"
   roman_numeral
-
 end
 
+def roman_unnumeralize(letters)
+  cm = letters.upcase.sub "CM", "s" * 900
+  cd = cm.sub "CD", "s" * 400
+  xc = cd.sub "XC", "s" * 90
+  xl = xc.sub "XL", "s" * 40
+  ix = xl.sub "IX", "s" * 9
+  iv = ix.sub "IV", "s" * 4
+  m = iv.gsub "M", "s" * 1000
+  d = m.gsub "D", "s" * 500
+  c = d.gsub "C", "s" * 100
+  l = c.gsub "L", "s" * 50
+  x = l.gsub "X", "s" * 10
+  v = x.gsub "V", "s" * 5
+  v.length #.count .size
+end
 
-print roman_numeralize(59)
+# print roman_unnumeralize("mxlix")
+# print roman_numeralize(1049)
+puts roman_numeralize(roman_unnumeralize("v"))
+puts roman_unnumeralize(roman_numeralize(1049))
