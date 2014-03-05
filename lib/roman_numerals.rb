@@ -1,10 +1,12 @@
 def roman_numeralize(number) 
-  partial_ramonized = []
-  number.times do
-    partial_ramonized << "I"
-  end
-  string_of_I = partial_ramonized.join("")
-  string_of_V = string_of_I.gsub "IIIII", "V"
+  # partial_romanized = []
+  # number.times do
+  #   partial_romanized << "I"
+  partial_romanized = "I" * number
+  # end
+  # string_of_I = partial_romanized.join("")
+  string_of_I = partial_romanized
+  string_of_V = string_of_I.gsub "IIIII", "V" #.gsub(/I{5}/, "V")
   string_of_X = string_of_V.gsub "VV", "X"
   string_of_L = string_of_X.gsub "XXXXX", "L"
   string_of_C = string_of_L.gsub "LL", "C"
@@ -15,9 +17,10 @@ def roman_numeralize(number)
   string_of_XC = string_of_CD.gsub "LXXXX", "XC"
   string_of_XL = string_of_XC.gsub "XXXX", "XL"
   string_of_IX = string_of_XL.gsub "VIIII", "IX"
-  string_of_IV = string_of_IX.gsub "IIII", "IV"
-  string_of_IV 
+  roman_numeral = string_of_IX.gsub "IIII", "IV"
+  roman_numeral
+
 end
 
 
-print roman_numeralize(9)
+print roman_numeralize(59)
